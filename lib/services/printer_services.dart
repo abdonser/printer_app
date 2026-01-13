@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:convert';
 import 'dart:ui' as ui;
 
 import 'package:path_provider/path_provider.dart';
@@ -51,21 +50,8 @@ class PrinterService {
     printer.writeBytes(Uint8List.fromList([0x1B, 0x40]));
   }
 
-  //  Load logo image from assets and save to temp directory
-  Future<String> getLogoFilePath() async {
-    final data = await rootBundle.load("assets/ahn.jpeg"); // Load asset
-    final bytes = data.buffer.asUint8List();
-    final tempDir = await getTemporaryDirectory();
-    final file = File("${tempDir.path}/ahn.jpeg");
-    await file.writeAsBytes(bytes); // Save to temp file
-    return file.path;
-  }
 
-  // Print logo image
-  Future<void> printLogo() async {
-    final logoPath = await getLogoFilePath();
-    await printer.printImage(logoPath);
-  }
+
 
   //  Render single line of text into a bitmap image
   Future<ui.Image> _textToImage(

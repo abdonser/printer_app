@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blue_thermal_printer/blue_thermal_printer.dart';
 import 'package:printer_app/presentation/componant/custom_elevated_button.dart';
-
 import '../../services/printer_services.dart';
 
 
@@ -60,13 +59,20 @@ class _HomePrintScreenState extends State<HomePrintScreen> {
         ],
         total: 2*10.0 + 5*5.0 + 3*7.5,
       );
+      // await printerService.printReceipt(
+      //   items: [
+      //     {"name":"pizza","qty":2,"price":100.0},
+      //
+      //   ],
+      //   total: 2*100.0,
+      // );
      // await printerService.printTableAsBitmap([["السعر", "النوع", "الصنف"],["10", "شبسي", "ايجبت فود"]],);
       //await printerService.printer.paperCut();
       //await printerService.printer.printCustom("message", 1, 1);
       //await printerService.printTableAsBitmap([["السعر", "النوع", "الصنف"],["10", "شبسي", "ايجبت فود"]],);
      //await printerService.printTextAsBitmap("بسم الله الرحمن الرحيم");
      //await printerService.printer.paperCut();
-      //await printerService.printTextAsBitmap("welcome to new success 😁😁");
+      //await printerService.printTextAsBitmap("welcome to new success");
       //await printerService.printTextAsBitmap("مرحبا بالعالم");
       //await printerService.printTextAsBitmap("Abdelhameed nasr");
 
@@ -85,7 +91,7 @@ class _HomePrintScreenState extends State<HomePrintScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("🖨️ Printer Demo",
+        title: const Text("🖨️Printer Setting",
             style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.blueGrey,
         centerTitle: true,
@@ -158,7 +164,7 @@ class _HomePrintScreenState extends State<HomePrintScreen> {
             CustomElevatedButton(
               onPress: _printTest,
               icon: Icons.print,
-              text: "Print Test",
+              text: "Print Receipt",
               color: Colors.blue,
               height: 16,
               width: 30,
